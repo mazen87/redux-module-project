@@ -25,6 +25,12 @@ return state;
 };
 //Store 
 const appStore = createStore(rootReducer);
+
+//Subscription 
+appStore.subscribe(() => {
+    console.log('[Subscription]', appStore.getState());
+});
+
 //const appStore = redux.createStore(rootReducer);
 console.log(appStore.getState());
 
@@ -34,5 +40,3 @@ console.log(appStore.getState());
 appStore.dispatch({type:'INC_COUNTER'});
 appStore.dispatch({type:'ADD_COUNTER' ,value:10});
 console.log(appStore.getState());
-
-//Subscription 
